@@ -1,48 +1,81 @@
 <template>
+    <div class="searchbar">
+        <h2>Search for recipes</h2>
+        <input type="text" v-model="searchWord" placeholder="Search for meals" @change="searchRecipe">
+    </div>
 
-    <h3>Search by meal name</h3>
-   <!-- <div class="input-div">
-    <input type="text" placeholder = "Search for meals" v-model="searchword" @change="searchForMeals">
-   </div>
-
-   <RecipeBody :recipes ="searchedMeals" /> -->
-
-
+    <div class="recipe-grid">
+        <ul v-for="recipe in searchedMeals" :key="recipe">
+            <h2>{{ recipe.strMeal }}</h2>
+            <img :src="recipe.strMealThumb" alt="picture of food">
+        </ul>
+    </div>
 </template>
 
-<!-- <script setup>
-import { ref, computed } from "vue";
-import store from '../store';
-import RecipeBody from '../components/RecipeBody.vue';
+<script>
+import axios from 'axios';
+export default {
 
-const searchedMeals = computed(() => store.state.searchedMeals);
-const searchword = ref('');
+    data() {
+        return {
+            searchWord: "",
+            searchedMeals: []
+        }
+    },
 
-function searchForMeals(){
-    store.dispatch('searchForMeals', searchword.value);
+    methods: {
+        searchRecipe() {
+            if (this.searchWord) {
+                axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${this.searchWord}`)
+                    .then(data => {
+                        this.searchedMeals = data.data.meals;
+                    })
+            }
+            else {
+                this.searchedMeals = [];
+            }
+        },
+
+      
+    }
+
+
 }
+
 
 </script>
 
-
 <style scoped>
+.searchbar{
+    padding: 0 10%; 
+}
 
-.input-div{
+input{
+    width: 40%;
+    height: 50px;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+
+
+}
+
+input:active,
+input:focus{
+    outline: 3px solid rgb(255, 153, 0);
+    border-radius: 5px;
+    
+}
+
+.recipe-grid {
+    display: inline-grid;
     text-align: center;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
-input {
-    width: 60%;
-    height: 40px;
-    padding: 5px;
-	background: white;
-	border: none;
-	border-radius: 5px;
-	outline: none;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-
+img {
+    width: 200px;
+    height: auto;
 }
-
-</style> -->
+</style>

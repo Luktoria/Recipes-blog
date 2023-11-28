@@ -2,12 +2,14 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from './components/HomePage.vue';
 import SearchMeals from './components/SearchMeals.vue';
 import CategoriesMeal from './components/CategoriesMeal.vue';
+import FoodCategory from './components/FoodCategory.vue';
+import RecipesDetails from './components/RecipesDetails.vue'; 
 
 
 
 const routes = [
     {
-        path: '/', 
+        path: '/',
         redirect: '/home'
     },
 
@@ -15,7 +17,6 @@ const routes = [
         path: "/home",
         name: "home",
         component: HomePage,
-
     },
 
     {
@@ -23,11 +24,28 @@ const routes = [
         name: "searchMeals",
         component: SearchMeals,
     },
+
     {
         path: "/categories",
         name: "categories",
-        component: CategoriesMeal
+        component: CategoriesMeal,
+    },
+    {
+        path: "/categories/:category?",
+        name: "foodCategory",
+        component: FoodCategory
+    },
+
+    {
+        path: "/recipe/:id",
+        name: "recipesDetails",
+        component: RecipesDetails
     }
+      
+
+
+
+
 
 
 

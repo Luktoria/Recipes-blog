@@ -1,11 +1,18 @@
 <template>
     <div class="category-grid">
-    <div class="category-container" v-for="category in categories" :key="category.id">
-        <img :src="category.img" alt="food-category-img">
-    <h3>{{ category.foodCategory }}</h3>
-    <p> {{ category.desc }}</p>
+
+        
+            <div class="category-container" v-for="category in categories" :key="category.id">
+                <router-link :to="{ name: 'foodCategory', params: { category: category.foodCategory } }">
+                <img :src="category.img" alt="food-category-img">
+                </router-link>
+                <h3>{{ category.foodCategory }}</h3>
+                <p> {{ category.desc }}</p>
+
+            </div>
+        
+
     </div>
-</div>
 </template>
 
 <script>
@@ -32,29 +39,28 @@ export default {
         }
     },
 
-    methods:{
-        fetchData(){
+    methods: {
+        fetchData() {
             axios
-            .get('https://www.themealdb.com/api/json/v1/1/categories.php')
-            .then((response) => {
-                const arr = []
-                for( let i = 0; i < response.data.categories.length; i++){
-                    arr.push({
-                        id: response.data.categories[i].idCategory,
-                        foodCategory: response.data.categories[i].strCategory,
-                        img: response.data.categories[i].strCategoryThumb,
-                        desc: response.data.categories[i].strCategoryDescription,
-                    });
-                    this.categories = arr;
-                // this.categories.foodCategory = response.data.categories[i].strCategory;
-                // console.log(response.data.categories[i].idCategory)
-                console.log(this.categories);
-            }
-            })
-        }
+                .get('https://www.themealdb.com/api/json/v1/1/categories.php')
+                .then((response) => {
+                    const arr = []
+                    for (let i = 0; i < response.data.categories.length; i++) {
+                        arr.push({
+                            id: response.data.categories[i].idCategory,
+                            foodCategory: response.data.categories[i].strCategory,
+                            img: response.data.categories[i].strCategoryThumb,
+                            desc: response.data.categories[i].strCategoryDescription,
+                        });
+                        this.categories = arr;
+                        // this.categories.foodCategory = response.data.categories[i].strCategory;
+                        // console.log(response.data.categories[i].idCategory)
+                    }
+                })
+        },
     },
 
-    created(){
+    created() {
         this.fetchData();
     }
 }
@@ -68,39 +74,37 @@ export default {
 } -->
 
 <style scoped>
+.category-grid {
 
-
-.category-grid{
-
-display: inline-flex;
+    display: inline-flex;
     flex-direction: row;
     flex-wrap: wrap;
     text-align: center;
     justify-content: center;
 }
 
-.category-container{
+.category-container {
     margin: 2%;
     border-radius: 10px;
-    backdrop-filter: blur(5px); 
+    backdrop-filter: blur(5px);
     background-color: rgba(12, 12, 12, 0.65);
     width: 25%;
     height: 100%;
 }
 
-h3, p{
+h3,
+p {
     background-color: white;
     color: black;
     margin: 0;
     padding: 3%;
-  
+
 }
 
-p{
+p {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     font-size: 20px;
-    height: 600px;
+    height: 30rem;
 }
-
 </style>
