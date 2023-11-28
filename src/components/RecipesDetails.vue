@@ -81,8 +81,8 @@ onMounted(() => {
 }
 
 .background-blur{
-    background-color: rgba(12, 12, 12, 0.92);
-    backdrop-filter: blur(10px);
+    background-color: white;
+    color: black;
 }
 
 
@@ -147,7 +147,8 @@ h4 {
     width: 100%;
     text-align: center;
     padding: 15px auto;
-    background-color: #0000006e;
+    background-color: white;
+    color: black;
 }
 .background-div {
     padding: 5%;
@@ -168,7 +169,7 @@ h4 {
     line-height: 25px;
     text-align: left;
     width: 80%;
-    border: 1px solid white;
+    border: 1px solid black;
 
 }
 
@@ -180,50 +181,3 @@ h4 {
 
 
 
-
-
-<!-- <template>
-    Details for recipes
-</template>
-
-<script>
-import axios from 'axios';
-export default{
-    data(){
-        return {
-            id: this.$route.params.id,
-            recipe: {
-                mealId: "",
-
-            }
-        }
-    },
-
-    created(){
-        axios.get('https://www.themealdb.com/api/json/v1/1/lookup.php?i=' + this.id)
-        .then((response) => {
-            console.log(response)
-            console.log(response.data.meals[0].idMeal);
-            console.log(response.data.meals[0].strIngredient1);
-            console.log(response.data.meals[0].strInstructions);
-        })
-    }
-
-    created() {
-        axios.get("https://www.themealdb.com/api/json/v1/1/filter.php?c=" + this.category)
-            .then((response) => {
-                const arr = []
-                for (let x = 0; x < response.data.meals.length; x++) {
-                    arr.push({
-                        id: response.data.meals[x].idMeal,
-                        foodName: response.data.meals[x].strMeal,
-                        img: response.data.meals[x].strMealThumb,
-                    });
-                    this.recipes = arr;
-                }
-            });
-    }
-
-}
-
-</script> -->

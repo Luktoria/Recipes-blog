@@ -7,8 +7,6 @@
                 <img :src="category.img" alt="food-category-img">
                 </router-link>
                 <h3>{{ category.foodCategory }}</h3>
-                <p> {{ category.desc }}</p>
-
             </div>
         
 
@@ -27,13 +25,13 @@ export default {
                     id: "1",
                     foodCategory: "Beef",
                     img: "https://www.themealdb.com/images/category/beef.png",
-                    desc: "Beef is the culinary name for meat from cattle, particularly skeletal muscle. Humans have been eating beef since prehistoric times. Beef is a source of high-quality protein and essential nutrients."
+                    
                 },
                 {
                     id: "2",
                     foodCategory: "Chicken",
                     img: "https://www.themealdb.com/images/category/chicken.png",
-                    desc: "Chicken is a type of domesticated fowl, a subspecies of the red junglefowl. It is one of the most common and widespread domestic animals, with a total population of more than 19 billion as of 2011. Humans commonly keep chickens as a source of food (consuming both their meat and eggs) and, more rarely, as pets."
+                   
                 },
             ]
         }
@@ -50,7 +48,6 @@ export default {
                             id: response.data.categories[i].idCategory,
                             foodCategory: response.data.categories[i].strCategory,
                             img: response.data.categories[i].strCategoryThumb,
-                            desc: response.data.categories[i].strCategoryDescription,
                         });
                         this.categories = arr;
                         // this.categories.foodCategory = response.data.categories[i].strCategory;

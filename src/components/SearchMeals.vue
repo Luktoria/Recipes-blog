@@ -6,8 +6,9 @@
 
     <div class="recipe-grid">
         <ul v-for="recipe in searchedMeals" :key="recipe">
-            <h2>{{ recipe.strMeal }}</h2>
             <img :src="recipe.strMealThumb" alt="picture of food">
+            <h3>{{ recipe.strMeal }}</h3>
+            <router-link :to="{name: 'recipesDetails', params: { id: recipe.idMeal } }">View</router-link>
         </ul>
     </div>
 </template>
@@ -70,12 +71,43 @@ input:focus{
 
 .recipe-grid {
     display: inline-grid;
-    text-align: center;
+    width: 100%;
+    gap: 20px;
+    padding: 5% 10%;
     grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    
 }
 
 img {
-    width: 200px;
-    height: auto;
+    width: 400px;
+    height: 250px;
+    object-fit: cover;
+    text-align: center;
+    padding: 0;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 }
+
+ul{
+    width: 400px;
+    background-color: white;
+    color: black;
+    padding: 0 0 15px 0;
+    border-radius: 10px;
+}
+
+a{
+    margin-bottom: 2%;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+}
+
+a:hover{
+    text-decoration: 2px underline;
+    text-decoration-color: gold;
+}
+
+
 </style>
