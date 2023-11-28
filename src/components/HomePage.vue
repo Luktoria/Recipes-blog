@@ -51,13 +51,7 @@ export default {
 
     data(){
         return {
-            meals: [ 
-                {
-            mealName: "",
-            mealImg: "",
-            area: ""
-        }
-    ]
+            meals: []
         }
     },  
 
@@ -68,10 +62,10 @@ export default {
             axios
             .get("https://www.themealdb.com/api/json/v1/1/random.php")
             .then((response) => {
-                this.meals.mealName = response.data.meals[0].strMeal 
+                this.meals = response.data.meals 
             //     this.mealImg = response.data.meals[0].strMealThumb;
             //     this.area = response.data.meals[0].strArea;
-               console.log(this.meals.mealName)
+               console.log(this.meals)
             })
 
        }

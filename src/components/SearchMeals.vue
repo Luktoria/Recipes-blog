@@ -49,6 +49,7 @@ export default {
 <style scoped>
 .searchbar{
     padding: 0 10%; 
+    text-align: center;
 }
 
 input{
@@ -58,6 +59,8 @@ input{
     outline: none;
     border: none;
     border-radius: 5px;
+    margin: auto;
+    padding-left: 20px;
 
 
 }
@@ -75,8 +78,11 @@ input:focus{
     gap: 20px;
     padding: 5% 10%;
     grid-template-columns: 1fr 1fr 1fr;
-    text-align: center;
-    
+    text-align: center;  
+}
+
+h2{
+    font-size: 48px;
 }
 
 img {

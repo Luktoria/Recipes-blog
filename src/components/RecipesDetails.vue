@@ -100,7 +100,7 @@ img {
 
 button {
     display: block;
-    background-color: red;
+    background-color: rgb(247, 148, 0);
     width: 150px;
     height: 50px;
     margin: auto;
@@ -112,7 +112,8 @@ button {
 }
 
 button:hover{
-    background-color: rgba(255, 0, 0, 0.473);
+    background-color: #011F61;
+    cursor: pointer;
 }
 
 a {

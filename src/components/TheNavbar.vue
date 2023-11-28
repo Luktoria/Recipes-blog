@@ -20,9 +20,9 @@ nav{
 }
 
 .navbar-container {
-    background-color: rgb(237 162 33 / 88%);
+    background-color: rgb(247 156 0 / 89%);
     padding: 0 10%;
-    color: #0a5037;
+    color: #011F61;
 }
 h1{
     display: inline-block;
@@ -49,7 +49,7 @@ a{
     align-items: center;
     color: white;
     text-decoration: none;
-    color: #0a5037;
+    color: #011F61;
     font-size: 18px;
 }
 
@@ -57,6 +57,7 @@ a:hover{
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.65);
     color: rgb(0, 30, 85);
+    width: 130px;
     border-radius: 6px;
     text-decoration: underline;
     text-decoration-color: rgb(247, 149, 2);
