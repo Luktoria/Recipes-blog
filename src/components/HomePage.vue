@@ -1,37 +1,19 @@
 <template>
 
 <section class="home-page">
-    <button @click="getData">Click</button>
 
-    <div class="content" >
-
-        {{ meals.mealName }}
-
+    <div class="container">
     <MealItem
     v-for="meal in meals" 
     :key="meal.idMeal"
-    :name="meal.mealName"
+    :id="meal.idMeal"
+    :name="meal.strMeal"
+    :img="meal.strMealThumb"
     />
-    
+</div>
 
 
-    </div>
-
-    <div class="container">
-
-        <div class="small-random">
-            Another random meal but in small
-        </div>
-
-        <div class="small-random">
-            Another random meal but in small
-        </div>
-
-        <div class="small-random">
-            Another random meal but in small
-        </div>
-
-    </div>
+   
 
 </section>
 
@@ -57,31 +39,21 @@ export default {
 
     methods: {
     getData(){
-      
-    for (let i = 0; i < 4; i++){ 
+    for (let i = 0; i < 9; i++){ 
             axios
             .get("https://www.themealdb.com/api/json/v1/1/random.php")
             .then((response) => {
-                this.meals = response.data.meals 
-            //     this.mealImg = response.data.meals[0].strMealThumb;
-            //     this.area = response.data.meals[0].strArea;
-               console.log(this.meals)
+                this.meals.push(response.data.meals[0]);
             })
-
        }
     },
-
 },
+
+mounted(){
+    this.getData();
 }
 
-
-// onMounted(() => {
-//     axios
-//     .get("https://www.themealdb.com/api/json/v1/1/random.php")
-//     .then(({ data }) => {
-//         meals.value = data.meals;
-//     })
-// });
+}
 
 
 
@@ -89,34 +61,29 @@ export default {
 
 <style scoped>
 .home-page {
-    backdrop-filter: blur(5px);
     font-size: 20px;
-}
-.content{
-    width: 100%;
-    height: 500px;
-    background-color: rgba(12, 12, 12, 0.65);
-    border: 1px solid white;
-    margin-bottom: 20px;
 }
 
 .container{
-    display: flex;
-    height: 100px;
-    background-color: rgba(12, 12, 12, 0.65);
-    width: 100%;
-    gap: 10px;
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+    /* padding-left: 2rem;
+    padding-right: 2rem; */
+   justify-items: center;
+    text-align: center;  
+}
+
+@media screen and (max-width: 500px){
+ 
+ .container{
+     grid-template-columns: repeat(1, minmax(0, 1fr));
+ }
 
 }
 
-.small-random{
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 33%;
-    border: 1px solid white;
-    height: 100px;
 
-}
 
 </style>

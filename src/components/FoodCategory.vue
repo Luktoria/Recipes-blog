@@ -1,17 +1,25 @@
 <template>
     <div class="container-for-category">
-        <div class="category-item" v-for="recipe in recipes" :key="recipe.id">
-            <img :src="recipe.img" alt="image-of-food">
-            <h3>{{ recipe.foodName }}</h3>
-            <router-link :to="{name: 'recipesDetails', params: { id: recipe.id } }">View</router-link>
-        </div>
+
+<MealItem
+v-for="recipe in recipes"
+:key="recipe.id"
+:id="recipe.id"
+:name="recipe.foodName"
+:img="recipe.img"
+/>
 
     </div>
 </template>
 
 <script>
 import axios from 'axios';
+import MealItem from './MealItem.vue';
+
 export default {
+    components:{
+        MealItem
+    },
 
     data() {
         return {
@@ -42,37 +50,21 @@ export default {
 
 <style scoped>
 .container-for-category {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+   justify-items: center;
+    text-align: center; 
 }
 
-img {
-    width: 100%;
-    height: auto;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+@media screen and (max-width: 1439px){
+    .container-for-category{
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
 }
 
-.category-item {
-    border-radius: 15px;
-    background-color: white;
-    color: black;
-    text-align: center;
-    margin: 2%;
-    padding-bottom: 20px;
-    width: 25%;
-}
 
-a{
-    margin-bottom: 2%;
-    text-decoration: none;
-    font-size: 18px;
-    color: black;
-}
-
-a:hover{
-    text-decoration: 2px underline;
-    text-decoration-color: gold;
-}
 </style>

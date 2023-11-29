@@ -64,7 +64,6 @@ const meal = ref({})
 onMounted(() => {
     axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${route.params.id}`)
         .then(({ data }) => {
-            console.log(data);
             meal.value = data.meals[0] || {}
 
         })
@@ -171,12 +170,51 @@ h4 {
     text-align: left;
     width: 80%;
     border: 1px solid black;
-
 }
-
-
 .ingredients {
     padding-left: 10px;
+}
+
+@media screen and (max-width: 1439px){
+    .details-container{
+        padding: 0 18%;
+    }
+}
+
+@media screen and (max-width: 500px){ 
+
+    .details-container{
+        padding: 0 10%;
+    }
+
+    h2{
+        font-size: 18px;
+    }
+
+    h3{
+        font-size: 16px;
+    }
+
+    h4{
+        font-size: 14px;
+    }
+
+    .instructions{
+        line-height: 20px;
+    }
+
+    p{
+        font-size: 12px;
+        letter-spacing: 0.5px;
+    }
+
+    .grid-for-ingredients {
+    width: 100%;
+}
+
+    ul{
+        font-size: 12px;
+    }
 }
 </style>
 

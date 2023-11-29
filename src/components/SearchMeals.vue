@@ -5,17 +5,20 @@
     </div>
 
     <div class="recipe-grid">
-        <ul v-for="recipe in searchedMeals" :key="recipe">
-            <img :src="recipe.strMealThumb" alt="picture of food">
-            <h3>{{ recipe.strMeal }}</h3>
-            <router-link :to="{name: 'recipesDetails', params: { id: recipe.idMeal } }">View</router-link>
-        </ul>
+        <MealItem v-for="recipe in searchedMeals" :key="recipe" :id="recipe.idMeal" :name="recipe.strMeal"
+            :img="recipe.strMealThumb" />
     </div>
 </template>
 
 <script>
 import axios from 'axios';
+import MealItem from './MealItem.vue';
+
 export default {
+
+    components: {
+        MealItem
+    },
 
     data() {
         return {
@@ -37,7 +40,7 @@ export default {
             }
         },
 
-      
+
     }
 
 
@@ -47,12 +50,12 @@ export default {
 </script>
 
 <style scoped>
-.searchbar{
-    padding: 0 10%; 
+.searchbar {
+    padding: 0 10%;
     text-align: center;
 }
 
-input{
+input {
     width: 40%;
     height: 50px;
     font-size: 20px;
@@ -61,59 +64,54 @@ input{
     border-radius: 5px;
     margin: auto;
     padding-left: 20px;
-
-
 }
 
 input:active,
-input:focus{
+input:focus {
     outline: 3px solid rgb(255, 153, 0);
     border-radius: 5px;
-    
+
 }
 
 .recipe-grid {
-    display: inline-grid;
-    width: 100%;
-    gap: 20px;
-    padding: 5% 10%;
-    grid-template-columns: 1fr 1fr 1fr;
-    text-align: center;  
-}
-
-h2{
-    font-size: 48px;
-}
-
-img {
-    width: 400px;
-    height: 250px;
-    object-fit: cover;
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+    justify-items: center;
     text-align: center;
-    padding: 0;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
 }
 
-ul{
-    width: 400px;
-    background-color: white;
-    color: black;
-    padding: 0 0 15px 0;
-    border-radius: 10px;
+@media screen and (max-width: 1439px) {
+
+    input {
+        width: 40%;
+        height: 30px;
+        font-size: 15px;
+    }
 }
 
-a{
-    margin-bottom: 2%;
-    text-decoration: none;
-    font-size: 18px;
-    color: black;
+@media screen and (max-width: 500px) {
+
+    .recipe-grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    input {
+        width: 60%;
+        height: 25px;
+        font-size: 12px;
+    }
+
+    input:active,
+    input:focus {
+        outline: 2px solid rgb(255, 153, 0);
+    }
+
+    h2{
+        font-size: 16px;
+    }
+
 }
-
-a:hover{
-    text-decoration: 2px underline;
-    text-decoration-color: gold;
-}
-
-
 </style>

@@ -1,12 +1,13 @@
 <template>
-    <div class="category-grid">
+    <div class="category">
 
         
             <div class="category-container" v-for="category in categories" :key="category.id">
                 <router-link :to="{ name: 'foodCategory', params: { category: category.foodCategory } }">
-                <img :src="category.img" alt="food-category-img">
+                    <h3>{{ category.foodCategory }}</h3>
+                    <img src="../assets/link-svg.svg" alt="follow-link-logo">
                 </router-link>
-                <h3>{{ category.foodCategory }}</h3>
+                
             </div>
         
 
@@ -20,20 +21,7 @@ export default {
 
     data() {
         return {
-            categories: [
-                {
-                    id: "1",
-                    foodCategory: "Beef",
-                    img: "https://www.themealdb.com/images/category/beef.png",
-                    
-                },
-                {
-                    id: "2",
-                    foodCategory: "Chicken",
-                    img: "https://www.themealdb.com/images/category/chicken.png",
-                   
-                },
-            ]
+            categories: []
         }
     },
 
@@ -47,11 +35,9 @@ export default {
                         arr.push({
                             id: response.data.categories[i].idCategory,
                             foodCategory: response.data.categories[i].strCategory,
-                            img: response.data.categories[i].strCategoryThumb,
                         });
                         this.categories = arr;
-                        // this.categories.foodCategory = response.data.categories[i].strCategory;
-                        // console.log(response.data.categories[i].idCategory)
+
                     }
                 })
         },
@@ -64,44 +50,57 @@ export default {
 
 </script>
 
-<!-- for( let i = 0; i < response.data.categories.length; i++){
-    this.categories.foodCategory = response.data.categories[i].strCategory;
-    console.log(response)
-    console.log(this.categories.foodCategory)
-} -->
+
 
 <style scoped>
-.category-grid {
-
+.category {
     display: inline-flex;
     flex-direction: row;
     flex-wrap: wrap;
+    width: 100%;
     text-align: center;
     justify-content: center;
+
 }
 
 .category-container {
     margin: 2%;
     border-radius: 10px;
-    backdrop-filter: blur(5px);
-    background-color: rgba(12, 12, 12, 0.65);
-    width: 25%;
-    height: 100%;
+    background-color: white;
+    width: 30%;
 }
 
-h3,
-p {
-    background-color: white;
+a {
+    display: inline-block;
     color: black;
+    text-decoration: underline;
+    text-decoration-color: black;
+    width: 100%;
     margin: 0;
     padding: 3%;
-
 }
 
-p {
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    font-size: 20px;
-    height: 30rem;
+h3{
+    display: inline-block;
+    margin-right: 15px;
+}
+
+
+
+
+@media screen and (max-width: 800px){
+ 
+    .category{
+     flex-direction: column;
+     width: 100%;
+     text-align: center;
+     align-content: center;
+ 
+    }
+
+ .category-container{
+    width: 60%;
+ }
+
 }
 </style>
