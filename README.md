@@ -5,6 +5,7 @@ Recipes website is a simple multi-page food blog using https://www.themealdb.com
 ## Table of contents
 
 - [Overview](#overview)
+  - [Screenshot](#screenshot)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
@@ -13,6 +14,10 @@ Recipes website is a simple multi-page food blog using https://www.themealdb.com
 
 
 ## Overview
+
+### Screenshot
+
+![](./src/assets/Screenshot-of-blog)
 
 ### Links
 
