@@ -164,4 +164,34 @@ a:hover {
     }
 
 }
+
+@media screen and (max-width: 380px) {
+
+img{
+    height: 14px;
+    width: auto;
+}
+
+
+h1 {
+        font-size: 12px;
+    }
+
+ul {
+    width: 40%;
+    font-size: 8px;
+    height: 25px;
+    padding-left: 0;
+}
+
+a {
+    width: 25px;
+    font-size: 7px;
+}
+
+a:hover {
+    width: 25px;
+}
+
+}
 </style>

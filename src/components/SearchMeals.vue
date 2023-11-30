@@ -22,7 +22,7 @@ export default {
 
     data() {
         return {
-            searchWord: "",
+            searchWord:"",
             searchedMeals: []
         }
     },
@@ -41,7 +41,7 @@ export default {
         },
 
 
-    }
+    },
 
 
 }
