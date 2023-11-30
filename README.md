@@ -21,7 +21,7 @@ Recipes website is a simple multi-page food blog using https://www.themealdb.com
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://recipes-web-a5a10.web.app/home)
+- Live Site URL: (https://recipes-web-a5a10.web.app/home)
 
 ## My process
 
