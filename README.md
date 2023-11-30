@@ -17,7 +17,7 @@ Recipes website is a simple multi-page food blog using https://www.themealdb.com
 
 ### Screenshot
 
-![](./src/assets/Screenshot-of-blog)
+![](./src/assets/Screenshot-of-blog.png)
 
 ### Links
 
