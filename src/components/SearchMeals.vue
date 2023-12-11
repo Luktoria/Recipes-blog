@@ -4,9 +4,12 @@
         <input type="text" v-model="searchWord" placeholder="Search for meals" @change="searchRecipe">
     </div>
 
-    <div class="recipe-grid">
+    <div class="recipe-grid" v-if="searchedMeals">
         <MealItem v-for="recipe in searchedMeals" :key="recipe" :id="recipe.idMeal" :name="recipe.strMeal"
             :img="recipe.strMealThumb" />
+    </div>
+    <div v-else class="no-result">
+        <p>No result found. Try searcing for another word.</p>
     </div>
 </template>
 
@@ -81,6 +84,15 @@ input:focus {
     gap: 1.25rem;
     justify-items: center;
     text-align: center;
+}
+
+.no-result{
+    width: 60%;
+    margin: 5% auto auto auto;
+    font-size: 30px;
+    text-align: center;
+    background-color: white;
+    color: black;
 }
 
 @media screen and (max-width: 1439px) {

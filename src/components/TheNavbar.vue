@@ -116,7 +116,7 @@ a:hover {
 @media screen and (max-width: 660px) {
 
     .navbar-container {
-        padding: 0 5%;
+        padding: 0 2%;
     }
 
     h1 {
@@ -178,15 +178,17 @@ h1 {
     }
 
 ul {
-    width: 40%;
+    width: 50%;
     font-size: 8px;
     height: 25px;
-    padding-left: 0;
+    padding-left: 10px;
+   
 }
 
 a {
     width: 25px;
     font-size: 7px;
+    margin-right: 0;
 }
 
 a:hover {

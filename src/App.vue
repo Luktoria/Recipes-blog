@@ -48,7 +48,7 @@ h6{
     background-image: url(./assets/monika-grabkowska-TAj4X5-eRqE-unsplash-tablet.jpg);
     background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+
   }
 }
 

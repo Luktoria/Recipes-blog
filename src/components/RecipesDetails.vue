@@ -65,7 +65,6 @@ onMounted(() => {
     axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${route.params.id}`)
         .then(({ data }) => {
             meal.value = data.meals[0] || {}
-
         })
 })
 
@@ -184,7 +183,7 @@ h4 {
 @media screen and (max-width: 500px){ 
 
     .details-container{
-        padding: 0 10%;
+        padding: 0 0;
     }
 
     h2{
