@@ -9,7 +9,10 @@
             :img="recipe.strMealThumb" />
     </div>
     <div v-else class="no-result">
-        <p>No result found. Try searcing for another word.</p>
+            <img src="../assets/rice.png" alt="No food found">
+        <h3>No result found.</h3>
+            <br>
+            <p>Please try searcing for another word.</p>
     </div>
 </template>
 
@@ -87,12 +90,24 @@ input:focus {
 }
 
 .no-result{
-    width: 60%;
-    margin: 5% auto auto auto;
-    font-size: 30px;
+    margin: 10% auto;
     text-align: center;
+    width: 24rem;
+    height: 16rem;
     background-color: white;
     color: black;
+    padding: 0 0 15px 0;
+    border-radius: 10px;
+}
+
+.no-result img{
+    padding: 20px 0;
+}
+
+.no-result h3,
+.no-result p{
+    padding: 0;
+    margin: 0;
 }
 
 @media screen and (max-width: 1439px) {
@@ -106,6 +121,23 @@ input:focus {
 
 @media screen and (max-width: 500px) {
 
+    .no-result{
+        width: 16rem;
+    height: 12rem;
+    }
+
+    .no-result img{
+        width: 64px;
+        height: auto;
+    }
+
+    .no-result h3{
+        font-size: 14px;
+    }
+
+    .no-result p{
+        font-size: 12px;
+    }
     .recipe-grid {
         grid-template-columns: repeat(1, minmax(0, 1fr));
     }
